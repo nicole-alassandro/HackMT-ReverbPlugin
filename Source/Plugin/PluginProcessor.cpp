@@ -89,6 +89,19 @@ void HackMtreverbPluginAudioProcessor::prepareToPlay (double sampleRate, int sam
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    int combSizes[8] = { 1157, 1617, 1491, 1422, 1277, 1356, 1188, 1116 };
+    int allpassSizes[4] = { 225, 556, 441, 341 };
+
+    for (int i = 0; i < 8; ++i)
+    {
+        combFilters[i].setSize(((int)sampleRate * (combSizes[i] * 1.5)) / 44100);
+        lateCombs[i].setSize(((int)sampleRate * (combSizes[i] * 1.5)) / 44100);
+    }
+
+    for (int i = 0; i < 4; ++i)
+    {
+        allpassFilters[i].setSize(((int)sampleRate * (allpassSizes[i] * 1.5)) / 44100);
+    }
 }
 
 void HackMtreverbPluginAudioProcessor::releaseResources()
@@ -132,14 +145,52 @@ void HackMtreverbPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, 
     // This is here to avoid people getting screaming feedback
     // when they first compile a plugin, but obviously you don't need to keep
     // this code if your algorithm always overwrites all the output channels.
-    for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
+//    for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
+//        buffer.clear (i, 0, buffer.getNumSamples());
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
+    for (int channel = 0; channel < 1; ++channel)
     {
-        float* channelData = buffer.getWritePointer (channel);
+        float* channelData = buffer.getWritePointer(channel);
+
+        for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
+        {
+
+            float input = channelData[sample];
+
+            float output = 0;
+
+            for (int i = 0; i < 8; ++i)
+            {
+                output += combFilters[i].process(input, 0.1f, 0.5f) / 8;
+            }
+
+            float tempComb = output;
+
+            for (int i = 0; i < 8; ++i)
+            {
+                output += lateCombs[i].process(input, 0.1f, 0.5f) / 8;
+            }
+
+            output = (tempComb + output) / 2;
+
+            for (int i = 0; i < 2; ++i)
+            {
+                output = allpassFilters[i].process(output);
+            }
+
+            float tempAllPass = output;
+
+            for (int i = 3; i < 4; ++i)
+            {
+                output = allpassFilters[i].process(output);
+            }
+
+            output = (output + tempAllPass) / 2;
+
+            channelData[sample] = output;
+        }
 
         // ..do something to the data...
     }

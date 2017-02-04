@@ -13,6 +13,9 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+#include "../Processors/CombFilter.h"
+#include "../Processors/AllPassFilter.h"
+
 
 //==============================================================================
 /**
@@ -58,6 +61,11 @@ public:
 
 private:
     //==============================================================================
+
+    CombFilter combFilters[8];
+    CombFilter lateCombs[8];
+    AllPassFilter allpassFilters[4];
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HackMtreverbPluginAudioProcessor)
 };
 
