@@ -9,7 +9,7 @@
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="HackMTReverbPluginAU"
               pluginRTASCategory="" aaxIdentifier="com.lassandromorris.HackMTReverbPlugin"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.3.0">
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.3.1">
   <MAINGROUP id="MLrCve" name="HackMT-ReverbPlugin">
     <GROUP id="{60CE7B61-9A03-DB08-07E1-DAE109811A26}" name="Source">
       <FILE id="qiTsuf" name="PluginProcessor.cpp" compile="1" resource="0"
@@ -28,20 +28,20 @@
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="HackMT-ReverbPlugin"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="juce/modules"/>
+        <MODULEPATH id="juce_events" path="juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="juce/modules"/>
+        <MODULEPATH id="juce_video" path="juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2015 targetFolder="Builds/VisualStudio2015">
@@ -52,20 +52,20 @@
                        isDebug="0" optimisation="3" targetName="HackMT-ReverbPlugin"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../Xcode/Plugin Development/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="juce/modules"/>
+        <MODULEPATH id="juce_events" path="juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="juce/modules"/>
+        <MODULEPATH id="juce_video" path="juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="juce/modules"/>
       </MODULEPATHS>
     </VS2015>
   </EXPORTFORMATS>
