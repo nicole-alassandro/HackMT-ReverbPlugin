@@ -15,10 +15,10 @@ void AllPassFilter::clear() {
 
 float AllPassFilter::process(const float & input){
 	float fb = buffer[bufferIndex];
-	float ff = input + gain * fb;
-	float output = ff + fb;
+	float ff = input + (-gain) * fb;
+	float output = (ff * gain) + fb;
 
-	buffer[bufferIndex] = fb;
+	buffer[bufferIndex] = ff;
 	bufferIndex = (bufferIndex + 1) % buffer.size();
 
 	return output;
