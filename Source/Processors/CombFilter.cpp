@@ -11,7 +11,7 @@ void CombFilter::setSize(const int & size)
 void CombFilter::clear()
 {
 	lastCombOut = 0;
-	for (auto iter = buffer.begin(); auto != buffer.end(); ++iter) {
+	for (auto iter = buffer.begin(); iter != buffer.end(); ++iter) {
 		(*iter) = 0;
 	}
 }
