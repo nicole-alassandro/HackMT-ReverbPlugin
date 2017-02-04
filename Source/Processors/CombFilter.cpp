@@ -6,6 +6,7 @@ void CombFilter::setSize(const int & size)
 		bufferIndex = 0;
 		buffer.resize(size);
 	}
+    clear();
 }
 
 void CombFilter::clear()
@@ -24,9 +25,13 @@ float CombFilter::process(const float input, const float damp, const float feedb
 
 	// implement LPF in feedback to simulate room damping
 	lastCombOut = (output * (1.0 - damp)) + (lastCombOut * damp);
+
+    lastCombOut += 0.1f; lastCombOut -= 0.1f;
 	
 	// implement comb filter
-	filterOut = input + (lastCombOut *feedbacklvl);
+	filterOut = input - (lastCombOut * feedbacklvl);
+
+    filterOut += 0.1f; filterOut -= 0.1f;
 
 	// write filter output to buffer and inc index
 	buffer[bufferIndex] = filterOut;
