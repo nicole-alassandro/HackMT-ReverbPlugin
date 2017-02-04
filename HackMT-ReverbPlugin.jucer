@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="q4dex3" name="HackMT-ReverbPlugin" projectType="audioplug"
+              version="1.0.0" bundleIdentifier="com.lassandromorris.HackMTReverbPlugin"
+              includeBinaryInAppConfig="1" buildVST="1" buildVST3="0" buildAU="1"
+              buildAUv3="0" buildRTAS="0" buildAAX="0" pluginName="HackMT-ReverbPlugin"
+              pluginDesc="HackMT-ReverbPlugin" pluginManufacturer="lassandromorris"
+              pluginManufacturerCode="ALJM" pluginCode="Q4de" pluginChannelConfigs=""
+              pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
+              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="HackMTReverbPluginAU"
+              pluginRTASCategory="" aaxIdentifier="com.lassandromorris.HackMTReverbPlugin"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.3.0">
+  <MAINGROUP id="MLrCve" name="HackMT-ReverbPlugin">
+    <GROUP id="{60CE7B61-9A03-DB08-07E1-DAE109811A26}" name="Source">
+      <FILE id="qiTsuf" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="YvHIM8" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="vDntYw" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="Np049B" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="HackMT-ReverbPlugin"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="HackMT-ReverbPlugin"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../Xcode/Plugin Development/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2015 targetFolder="Builds/VisualStudio2015">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="HackMT-ReverbPlugin"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="HackMT-ReverbPlugin"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Xcode/Plugin Development/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../Xcode/Plugin Development/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2015>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+</JUCERPROJECT>
