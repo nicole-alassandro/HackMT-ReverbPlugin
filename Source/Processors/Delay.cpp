@@ -1,8 +1,9 @@
 #include "Delay.h"
 
 Delay::Delay(){
-	buffer.resize(10000); // max delay of ~200ms @ 44.1k
+	buffer.resize(88200); // max delay of ~200ms @ 44.1k
 	bufferIndex = 0;
+    length = 1;
 }
 
 void Delay::setBufferSize(int size)

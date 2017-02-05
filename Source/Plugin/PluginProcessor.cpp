@@ -28,6 +28,14 @@ HackMtreverbPluginAudioProcessor::HackMtreverbPluginAudioProcessor()
 
     currentRMS = 0;
 
+    mix.reset(10, 0.1);
+    width.reset(10, 0.1);
+    delayTime.reset(10, 0.1);
+
+    mix.setValue(1.0);
+    width.setValue(25);
+    delayTime.setValue(0);
+
 }
 
 HackMtreverbPluginAudioProcessor::~HackMtreverbPluginAudioProcessor()
@@ -96,15 +104,21 @@ void HackMtreverbPluginAudioProcessor::prepareToPlay(double sampleRate, int samp
 	for (int j = 0; j < getNumInputChannels(); ++j) {
 		for (int i = 0; i < 8; ++i)
 		{
-			combFilters[j][i].setSize(((int)sampleRate * (combSizes[i] + (j*width))) / 44100);
-			lateCombs[j][i].setSize(((int)sampleRate * (combSizes[i] + (j*width))) / 44100);
+			combFilters[j][i].setSize(((int)sampleRate * (combSizes[i] + (j * width.getNextValue()))) / 44100);
+			lateCombs[j][i].setSize(((int)sampleRate * (combSizes[i] + (j * width.getNextValue()))) / 44100);
 		}
 
 		for (int i = 0; i < 4; ++i)
 		{
-			allpassFilters[j][i].setSize(((int)sampleRate * (allpassSizes[i] + (j*width))) / 44100);
+			allpassFilters[j][i].setSize(((int)sampleRate * (allpassSizes[i] + (j * width.getNextValue()))) / 44100);
 		}
+
+        int predelaySize = (int)((2.0f) / (1.0f/sampleRate));
+        predelay[j].setBufferSize(predelaySize);
+        predelay[j].setLength(predelaySize);
 	}
+
+    currentSampleRate = sampleRate;
 }
 
 void HackMtreverbPluginAudioProcessor::releaseResources()
@@ -163,7 +177,7 @@ void HackMtreverbPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, 
 
             float output = 0;
 
-			predelay[channel].process(input);
+			output = predelay[channel].process(input);
 
             for (int i = 0; i < 8; ++i)
             {
@@ -193,10 +207,11 @@ void HackMtreverbPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, 
 
             output = (output + tempAllPass) / 2;
 
-            channelData[sample] = (input * (1.0 - mix)) + (output * mix);
+            channelData[sample] = (input * (1.0 - mix.getNextValue())) + (output * mix.getNextValue());
         }
 
-        currentRMS = buffer.getRMSLevel(0, 0, buffer.getNumSamples());
+        currentRMS = buffer.getRMSLevel(0, 0, buffer.getNumSamples()) * mix.getNextValue();
+
     }
 }
 
