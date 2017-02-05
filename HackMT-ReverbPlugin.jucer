@@ -19,6 +19,8 @@
               file="Source/Plugin/PluginProcessor.h"/>
       </GROUP>
       <GROUP id="{00F85F3C-EB56-5F0B-09B1-39B9DAFDABA7}" name="Processors">
+        <FILE id="O565el" name="Reverb.cpp" compile="1" resource="0" file="Source/Processors/Reverb.cpp"/>
+        <FILE id="eSoN3I" name="Reverb.h" compile="0" resource="0" file="Source/Processors/Reverb.h"/>
         <FILE id="WLYoDX" name="AllPassFilter.cpp" compile="1" resource="0"
               file="Source/Processors/AllPassFilter.cpp"/>
         <FILE id="S6UbBA" name="AllPassFilter.h" compile="0" resource="0" file="Source/Processors/AllPassFilter.h"/>
