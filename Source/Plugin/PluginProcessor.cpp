@@ -113,7 +113,7 @@ void HackMtreverbPluginAudioProcessor::prepareToPlay(double sampleRate, int samp
 			allpassFilters[j][i].setSize(((int)sampleRate * (allpassSizes[i] + (j * width.getNextValue()))) / 44100);
 		}
 
-        int predelaySize = (int)((2.0f) / (1.0f/sampleRate));
+        int predelaySize = (int)((0.2f) / (1.0f/sampleRate));
         predelay[j].setBufferSize(predelaySize);
         predelay[j].setLength(predelaySize);
 	}

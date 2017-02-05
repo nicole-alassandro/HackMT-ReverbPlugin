@@ -27,7 +27,7 @@ HackMtreverbPluginAudioProcessorEditor::HackMtreverbPluginAudioProcessorEditor (
     mix.addListener(this);
     addAndMakeVisible(mix);
 
-    predelay.setRange(1, 2000, 1);
+    predelay.setRange(1, 200, 1);
     predelay.setTopLeftPosition(500, 300);
     predelay.addListener(this);
     addAndMakeVisible(predelay);
