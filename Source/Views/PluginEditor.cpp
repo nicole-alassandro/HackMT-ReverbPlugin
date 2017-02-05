@@ -6,25 +6,20 @@ HackMtreverbPluginAudioProcessorEditor::HackMtreverbPluginAudioProcessorEditor (
 {
     background = ImageCache::getFromMemory(BinaryData::Background_png, BinaryData::Background_pngSize);
 
-    setSize (1024, 410);
+    setSize (512, 410);
 
-    title.setBounds(100, 100, 248, 48);
+    title.setBounds(144, 13, 248, 48);
     addAndMakeVisible(title);
 
     mix.setRange(0, 1.0, 0.1);
-    mix.setTopLeftPosition(300, 300);
+    mix.setTopLeftPosition(208, 89);
     mix.addListener(this);
     addAndMakeVisible(mix);
 
     predelay.setRange(1, 200, 1);
-    predelay.setTopLeftPosition(500, 300);
+    predelay.setTopLeftPosition(208, 255);
     predelay.addListener(this);
     addAndMakeVisible(predelay);
-
-    width.setRange(0, 50, 1);
-    width.setTopLeftPosition(700, 300);
-    width.addListener(this);
-    addAndMakeVisible(width);
 
     startTimerHz(10);
 }
@@ -54,10 +49,6 @@ void HackMtreverbPluginAudioProcessorEditor::sliderValueChanged(juce::Slider* s)
         processor.delayTime.setValue(predelay.getValue());
         processor.predelay[0].setLength((predelay.getValue()/1000.0f) / (1.0f/processor.currentSampleRate));
         processor.predelay[1].setLength((predelay.getValue()/1000.0f) / (1.0f/processor.currentSampleRate));
-    }
-    else if (s == &width)
-    {
-        processor.width = width.getValue();
     }
 }
 

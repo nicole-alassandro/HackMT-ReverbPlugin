@@ -13,7 +13,7 @@
   <MAINGROUP id="MLrCve" name="HackMT-ReverbPlugin">
     <GROUP id="{60CE7B61-9A03-DB08-07E1-DAE109811A26}" name="Source">
       <GROUP id="{8DE5A7BB-5000-70FF-AF09-A89BB244EE7C}" name="BinaryData">
-        <FILE id="BOMWo5" name="Background.png" compile="0" resource="1" file="Source/BinaryData/Background.png"/>
+        <FILE id="Qxnyxf" name="Background.png" compile="0" resource="1" file="Source/BinaryData/Background.png"/>
         <FILE id="lBPMRD" name="Knob.png" compile="0" resource="1" file="Source/BinaryData/Knob.png"/>
         <FILE id="SGgrfi" name="Title.png" compile="0" resource="1" file="Source/BinaryData/Title.png"/>
       </GROUP>

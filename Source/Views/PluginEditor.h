@@ -26,8 +26,7 @@ private:
 
     Image background;
     Title title;
-
-    Knob mix, predelay, width;
+    Knob predelay, mix;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HackMtreverbPluginAudioProcessorEditor)
 };
