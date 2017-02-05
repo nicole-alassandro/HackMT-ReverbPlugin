@@ -21,6 +21,9 @@ HackMtreverbPluginAudioProcessorEditor::HackMtreverbPluginAudioProcessorEditor (
     predelay.addListener(this);
     addAndMakeVisible(predelay);
 
+    mix.setValue(processor.mix.getNextValue(), dontSendNotification);
+    predelay.setValue(processor.delayTime.getNextValue(), dontSendNotification);
+
     startTimerHz(10);
 }
 
