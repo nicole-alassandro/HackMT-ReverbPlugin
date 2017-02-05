@@ -15,7 +15,13 @@ void Delay::setBufferSize(int size)
 }
 
 void Delay::setLength(int size){
-	length = size;
+	if (size < buffer.size()) {
+		length = size;
+	}
+	else {
+		setBufferSize(size);
+		length = size;
+	}
 }
 
 void Delay::clear(){
