@@ -26,6 +26,8 @@
         <FILE id="S6UbBA" name="AllPassFilter.h" compile="0" resource="0" file="Source/Processors/AllPassFilter.h"/>
         <FILE id="NDbUJb" name="CombFilter.cpp" compile="1" resource="0" file="Source/Processors/CombFilter.cpp"/>
         <FILE id="Wmg4gF" name="CombFilter.h" compile="0" resource="0" file="Source/Processors/CombFilter.h"/>
+        <FILE id="GZbjak" name="Delay.cpp" compile="1" resource="0" file="Source/Processors/Delay.cpp"/>
+        <FILE id="fliJQq" name="Delay.h" compile="0" resource="0" file="Source/Processors/Delay.h"/>
       </GROUP>
       <GROUP id="{965DA35D-D235-35E8-4978-24D07AAC4DC3}" name="Views">
         <FILE id="wgkvr0" name="PluginEditor.cpp" compile="1" resource="0"
