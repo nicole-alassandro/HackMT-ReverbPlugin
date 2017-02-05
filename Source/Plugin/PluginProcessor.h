@@ -15,7 +15,7 @@
 
 #include "../Processors/CombFilter.h"
 #include "../Processors/AllPassFilter.h"
-
+#include "../Processors/Delay.h"
 
 //==============================================================================
 /**
@@ -59,12 +59,18 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+	int width; // in samples for allpass and comb filter buffers
+	int delayTime; // in samples!
+	float mix; // wet/dry
+
 private:
     //==============================================================================
 
-    CombFilter combFilters[8];
-    CombFilter lateCombs[8];
-    AllPassFilter allpassFilters[4];
+    CombFilter combFilters[2][8];
+    CombFilter lateCombs[2][8];
+    AllPassFilter allpassFilters[2][4];
+	Delay predelay[2];
+	
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HackMtreverbPluginAudioProcessor)
 };
