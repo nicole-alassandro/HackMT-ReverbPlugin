@@ -19,8 +19,7 @@ void Delay::setLength(int size){
 		length = size;
 	}
 	else {
-		setBufferSize(size);
-		length = size;
+		length = buffer.size() - 1;
 	}
 }
 
