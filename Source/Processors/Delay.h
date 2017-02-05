@@ -15,7 +15,7 @@ public:
 	float process(float const &input);
 private:
 	vector<float> buffer;
-	int length;
+	int length;  // determines delay time through modulo in process method
 	int bufferIndex;
 };
 

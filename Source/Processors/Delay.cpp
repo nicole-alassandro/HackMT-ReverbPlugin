@@ -30,7 +30,7 @@ float Delay::process(float const &input)
 	buffer[bufferIndex] = input; // store new sample
 	
 	// move the index!
-	++bufferIndex;
+	bufferIndex = (bufferIndex + 1) % length;
 
 	return temp;
 }
