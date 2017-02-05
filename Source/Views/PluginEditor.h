@@ -14,19 +14,23 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
 #include "../Components/Title.h"
+#include "../Components/Knob.h"
 
 
 //==============================================================================
 /**
 */
 class HackMtreverbPluginAudioProcessorEditor  : public AudioProcessorEditor,
-                                                public Timer
+                                                public Timer,
+                                                public SliderListener
 {
 public:
     HackMtreverbPluginAudioProcessorEditor (HackMtreverbPluginAudioProcessor&);
     ~HackMtreverbPluginAudioProcessorEditor();
 
     void timerCallback() override;
+
+    void sliderValueChanged(Slider* s) override;
 
     void paint (Graphics&) override;
     void resized() override;
@@ -38,6 +42,8 @@ private:
 
     Image background;
     Title title;
+
+    Knob mix, predelay, width;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HackMtreverbPluginAudioProcessorEditor)
 };
