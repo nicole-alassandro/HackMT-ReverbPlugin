@@ -25,6 +25,9 @@ HackMtreverbPluginAudioProcessor::HackMtreverbPluginAudioProcessor()
                        )
 #endif
 {
+
+    currentRMS = 0;
+
 }
 
 HackMtreverbPluginAudioProcessor::~HackMtreverbPluginAudioProcessor()
@@ -87,8 +90,7 @@ void HackMtreverbPluginAudioProcessor::changeProgramName (int index, const Strin
 //==============================================================================
 void HackMtreverbPluginAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
 {
-	// Use this method as the place to do any pre-playback
-	// initialisation that you need..
+    currentRMS = 0;
 	int combSizes[8] = { 1157, 1617, 1491, 1422, 1277, 1356, 1188, 1116 };
 	int allpassSizes[4] = { 225, 556, 441, 341 };
 	for (int j = 0; j < getNumInputChannels(); ++j) {
@@ -107,8 +109,7 @@ void HackMtreverbPluginAudioProcessor::prepareToPlay(double sampleRate, int samp
 
 void HackMtreverbPluginAudioProcessor::releaseResources()
 {
-    // When playback stops, you can use this as an opportunity to free up any
-    // spare memory, etc.
+    currentRMS = 0;
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -157,7 +158,6 @@ void HackMtreverbPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, 
 
         for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
         {
-
             float input = channelData[sample];
 			float dry = input;
 
@@ -195,6 +195,8 @@ void HackMtreverbPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, 
 
             channelData[sample] = (input * (1.0 - mix)) + (output * mix);
         }
+
+        currentRMS = buffer.getRMSLevel(0, 0, buffer.getNumSamples());
     }
 }
 

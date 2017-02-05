@@ -11,28 +11,37 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-
 //==============================================================================
 HackMtreverbPluginAudioProcessorEditor::HackMtreverbPluginAudioProcessorEditor (HackMtreverbPluginAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    background = ImageCache::getFromMemory(BinaryData::Background_png, BinaryData::Background_pngSize);
+
+    setSize (1024, 410);
+
+    title.setBounds(100, 100, 248, 48);
+    addAndMakeVisible(title);
+
+    startTimerHz(10);
 }
 
 HackMtreverbPluginAudioProcessorEditor::~HackMtreverbPluginAudioProcessorEditor()
 {
+    stopTimer();
 }
 
-//==============================================================================
+void HackMtreverbPluginAudioProcessorEditor::timerCallback()
+{
+    float dB = juce::Decibels::gainToDecibels(processor.currentRMS);
+    dB += 20.0f;
+    dB = jmax(-96.0f, dB);
+    dB = jmin(0.0f , dB);
+    title.setTarget((96.0f - std::abs(dB)) / 96.0f);
+}
+
 void HackMtreverbPluginAudioProcessorEditor::paint (Graphics& g)
 {
-    g.fillAll (Colours::white);
-
-    g.setColour (Colours::black);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
+    g.drawImageAt(background, 0, 0);
 }
 
 void HackMtreverbPluginAudioProcessorEditor::resized()

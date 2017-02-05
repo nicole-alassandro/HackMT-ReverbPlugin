@@ -62,6 +62,7 @@ public:
 	int width; // in samples for allpass and comb filter buffers
 	int delayTime; // in samples!
 	float mix; // wet/dry
+    float currentRMS;
 
 private:
     //==============================================================================

@@ -9,9 +9,20 @@
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="HackMTReverbPluginAU"
               pluginRTASCategory="" aaxIdentifier="com.lassandromorris.HackMTReverbPlugin"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.3.1">
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.3.0">
   <MAINGROUP id="MLrCve" name="HackMT-ReverbPlugin">
     <GROUP id="{60CE7B61-9A03-DB08-07E1-DAE109811A26}" name="Source">
+      <GROUP id="{8DE5A7BB-5000-70FF-AF09-A89BB244EE7C}" name="BinaryData">
+        <FILE id="BOMWo5" name="Background.png" compile="0" resource="1" file="Source/BinaryData/Background.png"/>
+        <FILE id="lBPMRD" name="Knob.png" compile="0" resource="1" file="Source/BinaryData/Knob.png"/>
+        <FILE id="SGgrfi" name="Title.png" compile="0" resource="1" file="Source/BinaryData/Title.png"/>
+      </GROUP>
+      <GROUP id="{5EFC7688-CF4E-F028-B10A-D88A3E1F24C6}" name="Components">
+        <FILE id="w7zMvq" name="Knob.cpp" compile="1" resource="0" file="Source/Components/Knob.cpp"/>
+        <FILE id="sHGUVH" name="Knob.h" compile="0" resource="0" file="Source/Components/Knob.h"/>
+        <FILE id="BJv5sq" name="Title.cpp" compile="1" resource="0" file="Source/Components/Title.cpp"/>
+        <FILE id="SeiMmL" name="Title.h" compile="0" resource="0" file="Source/Components/Title.h"/>
+      </GROUP>
       <GROUP id="{ECAC5880-7356-5114-B101-498E388B13AC}" name="Plugin">
         <FILE id="YoQ4To" name="PluginProcessor.cpp" compile="1" resource="0"
               file="Source/Plugin/PluginProcessor.cpp"/>
