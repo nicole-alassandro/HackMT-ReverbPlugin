@@ -1,17 +1,6 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-//==============================================================================
 HackMtreverbPluginAudioProcessorEditor::HackMtreverbPluginAudioProcessorEditor (HackMtreverbPluginAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
@@ -79,6 +68,5 @@ void HackMtreverbPluginAudioProcessorEditor::paint (Graphics& g)
 
 void HackMtreverbPluginAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+
 }
