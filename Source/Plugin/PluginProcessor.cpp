@@ -17,11 +17,9 @@ HackMtreverbPluginAudioProcessor::HackMtreverbPluginAudioProcessor()
     currentRMS = 0;
 
     mix.reset(10, 0.1);
-    width.reset(10, 0.1);
     delayTime.reset(10, 0.1);
 
     mix.setValue(1.0);
-    width.setValue(25);
     delayTime.setValue(0);
 
 }
@@ -86,17 +84,17 @@ void HackMtreverbPluginAudioProcessor::prepareToPlay(double sampleRate, int samp
 {
     currentRMS = 0;
 	int combSizes[8] = { 1157, 1617, 1491, 1422, 1277, 1356, 1188, 1116 };
-	int allpassSizes[4] = { 225, 556, 441, 341 };
+	int allpassSizes[8] = { 225, 556, 441, 341, 300, 400, 500, 600 };
 	for (int j = 0; j < getNumInputChannels(); ++j) {
 		for (int i = 0; i < 8; ++i)
 		{
-			combFilters[j][i].setSize(((int)sampleRate * (combSizes[i] + (j * width.getNextValue()))) / 44100);
-			lateCombs[j][i].setSize(((int)sampleRate * (combSizes[i] + (j * width.getNextValue()))) / 44100);
+			combFilters[j][i].setSize(((int)sampleRate * ((combSizes[i] * 1.5)) / 44100));
+			lateCombs[j][i].setSize(((int)sampleRate * ((combSizes[i] * 1.5)) / 44100));
 		}
 
-		for (int i = 0; i < 4; ++i)
+		for (int i = 0; i < 8; ++i)
 		{
-			allpassFilters[j][i].setSize(((int)sampleRate * (allpassSizes[i] + (j * width.getNextValue()))) / 44100);
+			allpassFilters[j][i].setSize(((int)sampleRate * allpassSizes[i]) / 44100);
 		}
 
         int predelaySize = (int)((0.2f) / (1.0f/sampleRate));
@@ -165,14 +163,14 @@ void HackMtreverbPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, 
 
             output = (tempComb + output) / 2;
 
-            for (int i = 0; i < 2; ++i)
+            for (int i = 0; i < 4; ++i)
             {
                 output = allpassFilters[channel][i].process(output);
             }
 
             float tempAllPass = output;
 
-            for (int i = 3; i < 4; ++i)
+            for (int i = 4; i < 8; ++i)
             {
                 output = allpassFilters[channel][i].process(output);
             }

@@ -42,7 +42,6 @@ public:
 
     float currentRMS;
 
-    LinearSmoothedValue<int> width;
     LinearSmoothedValue<int> delayTime;
     LinearSmoothedValue<float> mix;
 
@@ -53,7 +52,7 @@ public:
 private:
     CombFilter combFilters[2][8];
     CombFilter lateCombs[2][8];
-    AllPassFilter allpassFilters[2][4];
+    AllPassFilter allpassFilters[2][8];
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HackMtreverbPluginAudioProcessor)
 };
